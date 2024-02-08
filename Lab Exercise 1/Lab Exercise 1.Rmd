@@ -1,0 +1,36 @@
+---
+title: "Lab Exercise 1"
+author: "Charles Daniel Songaling"
+date: "2024-02-08"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+
+url <- "https://www.amazon.com/?&tag=phtxtabkgode-20&ref=pd_sl_73t48p1dlf_e&adgrpid=151590336221&hvpone=&hvptwo=&hvadid=677569135158&hvpos=&hvnetw=g&hvrand=8032059004506345726&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9067222&hvtargid=kwd-10573980&hydadcr=9911_13618523&language=en_US"
+
+webpage <- read_html(url)
+
+session <- bow(url, user_agent = "Educational")
+session
+
+Products = data.frame()
+
+title_html <- html_nodes(webpage, "span.a-size-medium a-color-base a-text-normal")
+title <- html_text(title_html)
+head(title)
+
+price_html <- html_nodes(webpage, "span.a-price-whole")
+price <- html_text(price_html)
+
+rate_html <- html_nodes(webpage, "span.a-icon a-icon-star-small a-star-small-4-5 aok-align-bottom")
+rate <- html_text(rate_html)
+```
