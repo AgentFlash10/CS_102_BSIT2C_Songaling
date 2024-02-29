@@ -402,7 +402,7 @@ write.csv(product_review8, file = "product_review8")
 ```
 
 
-Product 9
+#Product 9
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -450,7 +450,7 @@ write.csv(product_review9, file = "product_review9")
 ```
 
 
-Product 10
+#Product 10
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -498,7 +498,1789 @@ write.csv(product_review10, file = "product_review10")
 ```
 
 
-Product 11
+#Product 11
 ```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset11 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset11)
+}
 
+link1 <- "https://www.amazon.com.au/Corsair-Wireless-Customisable-Aluminium-Compatibility/product-reviews/B07Y2MBBT9/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Corsair-Wireless-Customisable-Aluminium-Compatibility/product-reviews/B07Y2MBBT9/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Corsair-Wireless-Customisable-Aluminium-Compatibility/product-reviews/B07Y2MBBT9/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Corsair-Wireless-Customisable-Aluminium-Compatibility/product-reviews/B07Y2MBBT9/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Corsair-Wireless-Customisable-Aluminium-Compatibility/product-reviews/B07Y2MBBT9/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+product_review11 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review11)
+write.csv(product_review11, file = "product_review11")
+```
+
+
+#Product 12
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset12 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset12)
+}
+
+link1 <- "https://www.amazon.com.au/Turtle-Beach-Playstation-Nintendo-Connection/product-reviews/B08486NP2G/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Turtle-Beach-Playstation-Nintendo-Connection/product-reviews/B08486NP2G/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Turtle-Beach-Playstation-Nintendo-Connection/product-reviews/B08486NP2G/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Turtle-Beach-Playstation-Nintendo-Connection/product-reviews/B08486NP2G/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Turtle-Beach-Playstation-Nintendo-Connection/product-reviews/B08486NP2G/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+product_review12 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review12)
+write.csv(product_review12, file = "product_review12")
+```
+
+
+#Product 13
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset13 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset13)
+}
+
+link1 <- "https://www.amazon.com.au/EPOS-Detachable-Audio-Playstation-Compatible/product-reviews/B099KPHR5B/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/EPOS-Detachable-Audio-Playstation-Compatible/product-reviews/B099KPHR5B/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/EPOS-Detachable-Audio-Playstation-Compatible/product-reviews/B099KPHR5B/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/EPOS-Detachable-Audio-Playstation-Compatible/product-reviews/B099KPHR5B/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/EPOS-Detachable-Audio-Playstation-Compatible/product-reviews/B099KPHR5B/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+product_review13 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review13)
+write.csv(product_review13, file = "product_review13")
+```
+
+
+#Product 14
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset14 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset14)
+}
+
+link1 <- "https://www.amazon.com.au/Jabra-Evolve-20-UC-Stereo/product-reviews/B00ODRSBPW/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Jabra-Evolve-20-UC-Stereo/product-reviews/B00ODRSBPW/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Jabra-Evolve-20-UC-Stereo/product-reviews/B00ODRSBPW/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Jabra-Evolve-20-UC-Stereo/product-reviews/B00ODRSBPW/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Jabra-Evolve-20-UC-Stereo/product-reviews/B00ODRSBPW/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+product_review14 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review14)
+write.csv(product_review14, file = "product_review14")
+```
+
+
+Product 15
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset15 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset15)
+}
+
+link1 <- "https://www.amazon.com.au/Jabra-Evolve-Wireless-Stereo-Headset/product-reviews/B09Z2RTQHC/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Jabra-Evolve-Wireless-Stereo-Headset/product-reviews/B09Z2RTQHC/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Jabra-Evolve-Wireless-Stereo-Headset/product-reviews/B09Z2RTQHC/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Jabra-Evolve-Wireless-Stereo-Headset/product-reviews/B09Z2RTQHC/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Jabra-Evolve-Wireless-Stereo-Headset/product-reviews/B09Z2RTQHC/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+product_review15 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review15)
+write.csv(product_review15, file = "product_review15")
+```
+
+
+Product 16
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset16 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset16)
+}
+
+link1 <- "https://www.amazon.com.au/Razer-BlackShark-V2-Special-Edition/product-reviews/B091FBWFYF/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Razer-BlackShark-V2-Special-Edition/product-reviews/B091FBWFYF/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Razer-BlackShark-V2-Special-Edition/product-reviews/B091FBWFYF/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Razer-BlackShark-V2-Special-Edition/product-reviews/B091FBWFYF/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Razer-BlackShark-V2-Special-Edition/product-reviews/B091FBWFYF/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+product_review16 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review16)
+write.csv(product_review16, file = "product_review16")
+```
+
+
+Product 17
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset17 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset17)
+}
+
+link1 <- "https://www.amazon.com.au/Voyager-Wireless-Headset-Charging-Plantronics/product-reviews/B09VYGY8R6/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Voyager-Wireless-Headset-Charging-Plantronics/product-reviews/B09VYGY8R6/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Voyager-Wireless-Headset-Charging-Plantronics/product-reviews/B09VYGY8R6/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Voyager-Wireless-Headset-Charging-Plantronics/product-reviews/B09VYGY8R6/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Voyager-Wireless-Headset-Charging-Plantronics/product-reviews/B09VYGY8R6/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review17 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review17)
+write.csv(product_review17, file = "product_review17")
+```
+
+
+Product 18
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset18 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset18)
+}
+
+link1 <- "https://www.amazon.com.au/Razer-Kraken-HyperSense-Headset-Technology/product-reviews/B09D45HQ8N/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Razer-Kraken-HyperSense-Headset-Technology/product-reviews/B09D45HQ8N/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Razer-Kraken-HyperSense-Headset-Technology/product-reviews/B09D45HQ8N/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Razer-Kraken-HyperSense-Headset-Technology/product-reviews/B09D45HQ8N/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Razer-Kraken-HyperSense-Headset-Technology/product-reviews/B09D45HQ8N/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review18 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review18)
+write.csv(product_review18, file = "product_review18")
+```
+
+
+Product 19
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset19 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset19)
+}
+
+link1 <- "https://www.amazon.com.au/Turtle-Beach-Force-Recon-Black/product-reviews/B00YXO5UKY/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Turtle-Beach-Force-Recon-Black/product-reviews/B00YXO5UKY/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Turtle-Beach-Force-Recon-Black/product-reviews/B00YXO5UKY/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Turtle-Beach-Force-Recon-Black/product-reviews/B00YXO5UKY/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Turtle-Beach-Force-Recon-Black/product-reviews/B00YXO5UKY/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review19 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review19)
+write.csv(product_review19, file = "product_review19")
+```
+
+
+Product 20
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset20 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset20)
+}
+
+link1 <- "https://www.amazon.com.au/Plantronics-VOYAGER5200NEW-Voyager-5200-Headset/product-reviews/B079DDRSNM/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Plantronics-VOYAGER5200NEW-Voyager-5200-Headset/product-reviews/B079DDRSNM/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Plantronics-VOYAGER5200NEW-Voyager-5200-Headset/product-reviews/B079DDRSNM/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Plantronics-VOYAGER5200NEW-Voyager-5200-Headset/product-reviews/B079DDRSNM/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Plantronics-VOYAGER5200NEW-Voyager-5200-Headset/product-reviews/B079DDRSNM/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review20 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review20)
+write.csv(product_review20, file = "product_review20")
+```
+
+
+Product 21
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset21 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset21)
+}
+
+link1 <- "https://www.amazon.com.au/Razer-AU-Kraken-Headset-RZ04-02980200-R3M1/product-reviews/B07WLWNPZJ/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Razer-AU-Kraken-Headset-RZ04-02980200-R3M1/product-reviews/B07WLWNPZJ/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Razer-AU-Kraken-Headset-RZ04-02980200-R3M1/product-reviews/B07WLWNPZJ/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Razer-AU-Kraken-Headset-RZ04-02980200-R3M1/product-reviews/B07WLWNPZJ/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Razer-AU-Kraken-Headset-RZ04-02980200-R3M1/product-reviews/B07WLWNPZJ/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review21 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review21)
+write.csv(product_review21, file = "product_review21")
+```
+
+
+Product 22
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset22 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset22)
+}
+
+link1 <- "https://www.amazon.com.au/Pulse-3D-Wireless-Headset-PlayStation/product-reviews/B08H99878P/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Pulse-3D-Wireless-Headset-PlayStation/product-reviews/B08H99878P/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Pulse-3D-Wireless-Headset-PlayStation/product-reviews/B08H99878P/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Pulse-3D-Wireless-Headset-PlayStation/product-reviews/B08H99878P/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Pulse-3D-Wireless-Headset-PlayStation/product-reviews/B08H99878P/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review22 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review22)
+write.csv(product_review22, file = "product_review22")
+```
+
+
+Product 23
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset23 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset23)
+}
+
+link1 <- "https://www.amazon.com.au/EPOS-Open-Professional-Gaming-Lightweight/product-reviews/B09FPFN78X/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/EPOS-Open-Professional-Gaming-Lightweight/product-reviews/B09FPFN78X/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/EPOS-Open-Professional-Gaming-Lightweight/product-reviews/B09FPFN78X/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/EPOS-Open-Professional-Gaming-Lightweight/product-reviews/B09FPFN78X/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/EPOS-Open-Professional-Gaming-Lightweight/product-reviews/B09FPFN78X/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review23 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review23)
+write.csv(product_review23, file = "product_review23")
+```
+
+
+Product 24
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset24 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset24)
+}
+
+link1 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70P/product-reviews/B07NQX1J99/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70P/product-reviews/B07NQX1J99/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70P/product-reviews/B07NQX1J99/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70P/product-reviews/B07NQX1J99/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70P/product-reviews/B07NQX1J99/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review24 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review24)
+write.csv(product_review24, file = "product_review24")
+```
+
+
+Product 25
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset25 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset25)
+}
+
+link1 <- "https://www.amazon.com.au/Plantronics-Blackwire-Cancelling-Soundguard-Microphone/product-reviews/B089QVZBWM/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Plantronics-Blackwire-Cancelling-Soundguard-Microphone/product-reviews/B089QVZBWM/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Plantronics-Blackwire-Cancelling-Soundguard-Microphone/product-reviews/B089QVZBWM/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Plantronics-Blackwire-Cancelling-Soundguard-Microphone/product-reviews/B089QVZBWM/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Plantronics-Blackwire-Cancelling-Soundguard-Microphone/product-reviews/B089QVZBWM/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review25 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review25)
+write.csv(product_review25, file = "product_review25")
+```
+
+
+Product 26
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset26 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset26)
+}
+
+link1 <- "https://www.amazon.com.au/Jabra-Evolve2-Headset-Cancelling-USB/product-reviews/B086H56JDY/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Jabra-Evolve2-Headset-Cancelling-USB/product-reviews/B086H56JDY/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Jabra-Evolve2-Headset-Cancelling-USB/product-reviews/B086H56JDY/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Jabra-Evolve2-Headset-Cancelling-USB/product-reviews/B086H56JDY/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Jabra-Evolve2-Headset-Cancelling-USB/product-reviews/B086H56JDY/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review26 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review26)
+write.csv(product_review26, file = "product_review26")
+```
+
+
+Product 27
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset27 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset27)
+}
+
+link1 <- "https://www.amazon.com.au/Poly-Wireless-Plantronics-Headphones-Bluetooth/product-reviews/B09BBSM3JL/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Poly-Wireless-Plantronics-Headphones-Bluetooth/product-reviews/B09BBSM3JL/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Poly-Wireless-Plantronics-Headphones-Bluetooth/product-reviews/B09BBSM3JL/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Poly-Wireless-Plantronics-Headphones-Bluetooth/product-reviews/B09BBSM3JL/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Poly-Wireless-Plantronics-Headphones-Bluetooth/product-reviews/B09BBSM3JL/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review27 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review27)
+write.csv(product_review27, file = "product_review27")
+```
+
+
+Product 28
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset28 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset28)
+}
+
+link1 <- "https://www.amazon.com.au/Hollyland-Solidcom-Communication-Headphone-Microphone/product-reviews/B09V7VQFQN/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Hollyland-Solidcom-Communication-Headphone-Microphone/product-reviews/B09V7VQFQN/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Hollyland-Solidcom-Communication-Headphone-Microphone/product-reviews/B09V7VQFQN/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Hollyland-Solidcom-Communication-Headphone-Microphone/product-reviews/B09V7VQFQN/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Hollyland-Solidcom-Communication-Headphone-Microphone/product-reviews/B09V7VQFQN/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review28 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review28)
+write.csv(product_review28, file = "product_review28")
+```
+
+
+Product 29
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset29 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset29)
+}
+
+link1 <- "https://www.amazon.com.au/SteelSeries-Arctis-Wired-Gaming-Headset/product-reviews/B07SJHG1MJ/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/SteelSeries-Arctis-Wired-Gaming-Headset/product-reviews/B07SJHG1MJ/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/SteelSeries-Arctis-Wired-Gaming-Headset/product-reviews/B07SJHG1MJ/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/SteelSeries-Arctis-Wired-Gaming-Headset/product-reviews/B07SJHG1MJ/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/SteelSeries-Arctis-Wired-Gaming-Headset/product-reviews/B07SJHG1MJ/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review29 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review29)
+```
+
+
+Product 30
+```{r}
+category <- "Headset"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonheadset30 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonheadset30)
+}
+
+link1 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70N/product-reviews/B07NH6Q4LB/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70N/product-reviews/B07NH6Q4LB/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70N/product-reviews/B07NH6Q4LB/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70N/product-reviews/B07NH6Q4LB/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Turtle-Beach-Headset-Recon-70N/product-reviews/B07NH6Q4LB/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review30 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review30)
+```
+
+
+Product 31
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes1 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes1)
+}
+
+link1 <- "https://www.amazon.com.au/Skechers-Womens-Uno-Lace-Up-Sneaker/product-reviews/B0CR97XY75/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Skechers-Womens-Uno-Lace-Up-Sneaker/product-reviews/B0CR97XY75/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Skechers-Womens-Uno-Lace-Up-Sneaker/product-reviews/B0CR97XY75/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Skechers-Womens-Uno-Lace-Up-Sneaker/product-reviews/B0CR97XY75/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Skechers-Womens-Uno-Lace-Up-Sneaker/product-reviews/B0CR97XY75/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review31 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review31)
+```
+
+
+Product 32
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes2 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes2)
+}
+
+link1 <- "https://www.amazon.com.au/Tommy-Hilfiger-Essential-Leather-Sneaker/product-reviews/B0CJ8CD94N/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Tommy-Hilfiger-Essential-Leather-Sneaker/product-reviews/B0CJ8CD94N/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Tommy-Hilfiger-Essential-Leather-Sneaker/product-reviews/B0CJ8CD94N/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Tommy-Hilfiger-Essential-Leather-Sneaker/product-reviews/B0CJ8CD94N/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Tommy-Hilfiger-Essential-Leather-Sneaker/product-reviews/B0CJ8CD94N/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review32 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review32)
+```
+
+
+Product 33
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes3 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes3)
+}
+
+link1 <- "https://www.amazon.com.au/PUMA-385849/product-reviews/B09L5VV6D6/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/PUMA-385849/product-reviews/B09L5VV6D6/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/PUMA-385849/product-reviews/B09L5VV6D6/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/PUMA-385849/product-reviews/B09L5VV6D6/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/PUMA-385849/product-reviews/B09L5VV6D6/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review33 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review33)
+```
+
+
+Product 34
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes4 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes4)
+}
+
+link1 <- "https://www.amazon.com.au/GUESS-gwLOVEN4/product-reviews/B08H17RPY7/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/GUESS-gwLOVEN4/product-reviews/B08H17RPY7/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/GUESS-gwLOVEN4/product-reviews/B08H17RPY7/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/GUESS-gwLOVEN4/product-reviews/B08H17RPY7/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/GUESS-gwLOVEN4/product-reviews/B08H17RPY7/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review34 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review34)
+```
+
+
+Product 35
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes5 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes5)
+}
+
+link1 <- "https://www.amazon.com.au/Crocs-Womens-Clock-Resistant-Shoes/product-reviews/B096MM7Q7J/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Crocs-Womens-Clock-Resistant-Shoes/product-reviews/B096MM7Q7J/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Crocs-Womens-Clock-Resistant-Shoes/product-reviews/B096MM7Q7J/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Crocs-Womens-Clock-Resistant-Shoes/product-reviews/B096MM7Q7J/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Crocs-Womens-Clock-Resistant-Shoes/product-reviews/B096MM7Q7J/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review35 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review35)
+```
+
+
+Product 36
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes6 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes6)
+}
+
+link1 <- "https://www.amazon.com.au/Sloggers%C2%AE-5120BEEBL09-Waterproof-Comfort-Shoe/product-reviews/B07T1NVLH7/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Sloggers%C2%AE-5120BEEBL09-Waterproof-Comfort-Shoe/product-reviews/B07T1NVLH7/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Sloggers%C2%AE-5120BEEBL09-Waterproof-Comfort-Shoe/product-reviews/B07T1NVLH7/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Sloggers%C2%AE-5120BEEBL09-Waterproof-Comfort-Shoe/product-reviews/B07T1NVLH7/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Sloggers%C2%AE-5120BEEBL09-Waterproof-Comfort-Shoe/product-reviews/B07T1NVLH7/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review36 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review36)
+```
+
+
+Product 37
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes7 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes7)
+}
+
+link1 <- "https://www.amazon.com.au/Salomon-Mens-Speedcross-Trail-Running/product-reviews/B0CSKFTGXQ/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Salomon-Mens-Speedcross-Trail-Running/product-reviews/B0CSKFTGXQ/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Salomon-Mens-Speedcross-Trail-Running/product-reviews/B0CSKFTGXQ/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Salomon-Mens-Speedcross-Trail-Running/product-reviews/B0CSKFTGXQ/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Salomon-Mens-Speedcross-Trail-Running/product-reviews/B0CSKFTGXQ/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review37 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review37)
+```
+
+
+Product 38
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes8 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes8)
+}
+
+link1 <- "https://www.amazon.com.au/crocs-Mens-Santa-Cruz-Loafers/product-reviews/B079TXBCBX/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/crocs-Mens-Santa-Cruz-Loafers/product-reviews/B079TXBCBX/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/crocs-Mens-Santa-Cruz-Loafers/product-reviews/B079TXBCBX/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/crocs-Mens-Santa-Cruz-Loafers/product-reviews/B079TXBCBX/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/crocs-Mens-Santa-Cruz-Loafers/product-reviews/B079TXBCBX/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review38 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review38)
+```
+
+
+Product 39
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes9 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes9)
+}
+
+link1 <- "https://www.amazon.com.au/Dr-Martens-Unisex-Lace-Up-Leather/product-reviews/B0CM3Z1M6L/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Dr-Martens-Unisex-Lace-Up-Leather/product-reviews/B0CM3Z1M6L/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Dr-Martens-Unisex-Lace-Up-Leather/product-reviews/B0CM3Z1M6L/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Dr-Martens-Unisex-Lace-Up-Leather/product-reviews/B0CM3Z1M6L/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Dr-Martens-Unisex-Lace-Up-Leather/product-reviews/B0CM3Z1M6L/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review39 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review39)
+```
+
+
+Product 40
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes10 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes10)
+}
+
+link1 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review40 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review40)
+```
+
+
+Product 41
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes11 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes11)
+}
+
+link1 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review41 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review41)
+```
+
+
+Product 42
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes12 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes12)
+}
+
+link1 <- "https://www.amazon.com.au/Columbia/product-reviews/B0CTHY8Z3X/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Columbia/product-reviews/B0CTHY8Z3X/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Columbia/product-reviews/B0CTHY8Z3X/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Columbia/product-reviews/B0CTHY8Z3X/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Columbia/product-reviews/B0CTHY8Z3X/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review42 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review42)
+```
+
+
+Product 43
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes13 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes13)
+}
+
+link1 <- "https://www.amazon.com.au/MERRELL-J067663/product-reviews/B0BVXVG4MF/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/MERRELL-J067663/product-reviews/B0BVXVG4MF/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/MERRELL-J067663/product-reviews/B0BVXVG4MF/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/MERRELL-J067663/product-reviews/B0BVXVG4MF/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/MERRELL-J067663/product-reviews/B0BVXVG4MF/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review43 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review43)
+```
+
+
+Product 44
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes14 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes14)
+}
+
+link1 <- "https://www.amazon.com.au/adidas-Performance-Runfalcon/product-reviews/B0CV869L18/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/adidas-Performance-Runfalcon/product-reviews/B0CV869L18/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/adidas-Performance-Runfalcon/product-reviews/B0CV869L18/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/adidas-Performance-Runfalcon/product-reviews/B0CV869L18/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/adidas-Performance-Runfalcon/product-reviews/B0CV869L18/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review44 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review44)
+```
+
+
+Product 45
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes15 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes15)
+}
+
+link1 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review45 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review45)
+```
+
+
+Product 46
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes16 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes16)
+}
+
+link1 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review46 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review46)
+```
+
+
+Product 47
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes17 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes17)
+}
+
+link1 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review47 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+View(product_review47)
 ```
