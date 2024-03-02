@@ -15,7 +15,6 @@ library(rvest)
 library(polite)
 library(httr)
 library(selectr)
-library(xml2)
 ```
 
 #Product 1 
@@ -62,7 +61,6 @@ pg5 <- productinfo(link5)
 product_review1 <- rbind(pg1, pg2, pg3, pg4, pg5)
 #View(product_review1)
 
-write.csv(product_review1, file = "product_review1.csv")
 ```
 
 
@@ -108,9 +106,8 @@ pg4 <- productinfo(link4)
 link5 <- "https://www.amazon.com.au/HyperX-KHX-HSCP-GM-Headset-Virtual-Surround/product-reviews/B00SAYCVTQ/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
 pg5 <- productinfo(link5)
 product_review2 <- rbind(pg1, pg2, pg3, pg4, pg5)
-View(product_review2)
+#View(product_review2)
 
-write.csv(product_review2, file = "product_review2")
 ```
 
 
@@ -125,7 +122,7 @@ productinfo <- function(link) {
   Sys.sleep(5) 
         Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
   
-        prodReviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
   
         Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
         
@@ -133,8 +130,7 @@ productinfo <- function(link) {
   
         Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
   
-        prodRatings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
-  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
   amazonheadset3 <- data.frame(Category = category,
                         ProductName = Product,
                         Reviewer = Product_Reviewer,
@@ -157,8 +153,8 @@ link5 <- "https://www.amazon.com.au/Jabra-Evolve-Headset-Smartphone-softphone/pr
 pg5 <- productinfo(link5)
 product_review3 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review3)
-write.csv(product_review3, file = "product_review3")
+#View(product_review3)
+
 ```
 
 
@@ -205,8 +201,8 @@ link5 <- "https://www.amazon.com.au/Razer-Barracuda-Wireless-Multi-Platform-Head
 pg5 <- productinfo(link5)
 product_review4 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review4)
-write.csv(product_review4, file = "product_review4")
+#View(product_review4)
+
 ```
 
 
@@ -253,8 +249,8 @@ link5 <- "https://www.amazon.com.au/SteelSeries-Arctis-Nova-Multi-Platform-PlayS
 pg5 <- productinfo(link5)
 product_review5 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review5)
-write.csv(product_review5, file = "product_review5")
+#View(product_review5)
+
 ```
 
 
@@ -301,8 +297,8 @@ link5 <- "https://www.amazon.com.au/SteelSeries-Arctis-Nova-Illumination-Playsta
 pg5 <- productinfo(link5)
 product_review6 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review6)
-write.csv(product_review6, file = "product_review6")
+#View(product_review6)
+
 ```
 
 
@@ -349,8 +345,8 @@ link5 <- "https://www.amazon.com.au/Razer-BlackShark-V2-Gaming-Headset/product-r
 pg5 <- productinfo(link5)
 product_review7 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review7)
-write.csv(product_review7, file = "product_review7")
+#View(product_review7)
+
 ```
 
 
@@ -397,8 +393,8 @@ link5 <- "https://www.amazon.com.au/Jabra-Evolve2-Wireless-Headset-USB/product-r
 pg5 <- productinfo(link5)
 product_review8 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review8)
-write.csv(product_review8, file = "product_review8")
+#View(product_review8)
+
 ```
 
 
@@ -445,8 +441,8 @@ link5 <- "https://www.amazon.com.au/Plantronics-Bluetooth-Single-Ear-USB-Compati
 pg5 <- productinfo(link5)
 product_review9 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review9)
-write.csv(product_review9, file = "product_review9")
+#View(product_review9)
+
 ```
 
 
@@ -493,8 +489,8 @@ link5 <- "https://www.amazon.com.au/EPOS-Professional-Gaming-Lightweight-Comfort
 pg5 <- productinfo(link5)
 product_review10 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review10)
-write.csv(product_review10, file = "product_review10")
+#View(product_review10)
+
 ```
 
 
@@ -541,8 +537,8 @@ link5 <- "https://www.amazon.com.au/Corsair-Wireless-Customisable-Aluminium-Comp
 pg5 <- productinfo(link5)
 product_review11 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review11)
-write.csv(product_review11, file = "product_review11")
+#View(product_review11)
+
 ```
 
 
@@ -589,8 +585,8 @@ link5 <- "https://www.amazon.com.au/Turtle-Beach-Playstation-Nintendo-Connection
 pg5 <- productinfo(link5)
 product_review12 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review12)
-write.csv(product_review12, file = "product_review12")
+#View(product_review12)
+
 ```
 
 
@@ -637,8 +633,8 @@ link5 <- "https://www.amazon.com.au/EPOS-Detachable-Audio-Playstation-Compatible
 pg5 <- productinfo(link5)
 product_review13 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review13)
-write.csv(product_review13, file = "product_review13")
+#View(product_review13)
+
 ```
 
 
@@ -685,12 +681,12 @@ link5 <- "https://www.amazon.com.au/Jabra-Evolve-20-UC-Stereo/product-reviews/B0
 pg5 <- productinfo(link5)
 product_review14 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review14)
-write.csv(product_review14, file = "product_review14")
+#View(product_review14)
+
 ```
 
 
-Product 15
+#Product 15
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -733,12 +729,12 @@ link5 <- "https://www.amazon.com.au/Jabra-Evolve-Wireless-Stereo-Headset/product
 pg5 <- productinfo(link5)
 product_review15 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review15)
-write.csv(product_review15, file = "product_review15")
+#View(product_review15)
+
 ```
 
 
-Product 16
+#Product 16
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -781,12 +777,12 @@ link5 <- "https://www.amazon.com.au/Razer-BlackShark-V2-Special-Edition/product-
 pg5 <- productinfo(link5)
 product_review16 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review16)
-write.csv(product_review16, file = "product_review16")
+#View(product_review16)
+
 ```
 
 
-Product 17
+#Product 17
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -830,12 +826,12 @@ pg5 <- productinfo(link5)
 
 product_review17 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review17)
-write.csv(product_review17, file = "product_review17")
+#View(product_review17)
+
 ```
 
 
-Product 18
+#Product 18
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -879,12 +875,12 @@ pg5 <- productinfo(link5)
 
 product_review18 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review18)
-write.csv(product_review18, file = "product_review18")
+#View(product_review18)
+
 ```
 
 
-Product 19
+#Product 19
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -928,12 +924,12 @@ pg5 <- productinfo(link5)
 
 product_review19 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review19)
-write.csv(product_review19, file = "product_review19")
+#View(product_review19)
+
 ```
 
 
-Product 20
+#Product 20
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -977,12 +973,12 @@ pg5 <- productinfo(link5)
 
 product_review20 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review20)
-write.csv(product_review20, file = "product_review20")
+#View(product_review20)
+
 ```
 
 
-Product 21
+#Product 21
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1026,12 +1022,12 @@ pg5 <- productinfo(link5)
 
 product_review21 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review21)
-write.csv(product_review21, file = "product_review21")
+#View(product_review21)
+
 ```
 
 
-Product 22
+#Product 22
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1075,12 +1071,12 @@ pg5 <- productinfo(link5)
 
 product_review22 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review22)
-write.csv(product_review22, file = "product_review22")
+#View(product_review22)
+
 ```
 
 
-Product 23
+#Product 23
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1124,12 +1120,12 @@ pg5 <- productinfo(link5)
 
 product_review23 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review23)
-write.csv(product_review23, file = "product_review23")
+#View(product_review23)
+
 ```
 
 
-Product 24
+#Product 24
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1173,12 +1169,12 @@ pg5 <- productinfo(link5)
 
 product_review24 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review24)
-write.csv(product_review24, file = "product_review24")
+#View(product_review24)
+
 ```
 
 
-Product 25
+#Product 25
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1222,12 +1218,12 @@ pg5 <- productinfo(link5)
 
 product_review25 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review25)
-write.csv(product_review25, file = "product_review25")
+#View(product_review25)
+
 ```
 
 
-Product 26
+#Product 26
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1271,12 +1267,12 @@ pg5 <- productinfo(link5)
 
 product_review26 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review26)
-write.csv(product_review26, file = "product_review26")
+#View(product_review26)
+
 ```
 
 
-Product 27
+#Product 27
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1320,12 +1316,12 @@ pg5 <- productinfo(link5)
 
 product_review27 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review27)
-write.csv(product_review27, file = "product_review27")
+#View(product_review27)
+
 ```
 
 
-Product 28
+#Product 28
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1369,12 +1365,12 @@ pg5 <- productinfo(link5)
 
 product_review28 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review28)
-write.csv(product_review28, file = "product_review28")
+#View(product_review28)
+
 ```
 
 
-Product 29
+#Product 29
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1418,11 +1414,11 @@ pg5 <- productinfo(link5)
 
 product_review29 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review29)
+#View(product_review29)
 ```
 
 
-Product 30
+#Product 30
 ```{r}
 category <- "Headset"
 scrapeNodes <- function(session, HTML) {
@@ -1466,11 +1462,11 @@ pg5 <- productinfo(link5)
 
 product_review30 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review30)
+#View(product_review30)
 ```
 
 
-Product 31
+#Product 31
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1514,11 +1510,11 @@ pg5 <- productinfo(link5)
 
 product_review31 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review31)
+#View(product_review31)
 ```
 
 
-Product 32
+#Product 32
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1562,11 +1558,11 @@ pg5 <- productinfo(link5)
 
 product_review32 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review32)
+#View(product_review32)
 ```
 
 
-Product 33
+#Product 33
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1610,11 +1606,11 @@ pg5 <- productinfo(link5)
 
 product_review33 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review33)
+#View(product_review33)
 ```
 
 
-Product 34
+#Product 34
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1658,11 +1654,11 @@ pg5 <- productinfo(link5)
 
 product_review34 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review34)
+#View(product_review34)
 ```
 
 
-Product 35
+#Product 35
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1706,11 +1702,11 @@ pg5 <- productinfo(link5)
 
 product_review35 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review35)
+#View(product_review35)
 ```
 
 
-Product 36
+#Product 36
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1754,11 +1750,11 @@ pg5 <- productinfo(link5)
 
 product_review36 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review36)
+#View(product_review36)
 ```
 
 
-Product 37
+#Product 37
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1802,11 +1798,11 @@ pg5 <- productinfo(link5)
 
 product_review37 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review37)
+#View(product_review37)
 ```
 
 
-Product 38
+#Product 38
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1850,11 +1846,11 @@ pg5 <- productinfo(link5)
 
 product_review38 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review38)
+#View(product_review38)
 ```
 
 
-Product 39
+#Product 39
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1898,11 +1894,11 @@ pg5 <- productinfo(link5)
 
 product_review39 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review39)
+#View(product_review39)
 ```
 
 
-Product 40
+#Product 40
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1946,11 +1942,11 @@ pg5 <- productinfo(link5)
 
 product_review40 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review40)
+#View(product_review40)
 ```
 
 
-Product 41
+#Product 41
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -1994,11 +1990,11 @@ pg5 <- productinfo(link5)
 
 product_review41 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review41)
+#View(product_review41)
 ```
 
 
-Product 42
+#Product 42
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -2042,11 +2038,11 @@ pg5 <- productinfo(link5)
 
 product_review42 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review42)
+#View(product_review42)
 ```
 
 
-Product 43
+#Product 43
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -2090,11 +2086,11 @@ pg5 <- productinfo(link5)
 
 product_review43 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review43)
+#View(product_review43)
 ```
 
 
-Product 44
+#Product 44
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -2138,11 +2134,11 @@ pg5 <- productinfo(link5)
 
 product_review44 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review44)
+#View(product_review44)
 ```
 
 
-Product 45
+#Product 45
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -2173,24 +2169,24 @@ productinfo <- function(link) {
   return(amazonshoes15)
 }
 
-link1 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+link1 <- "https://www.amazon.com.au/DC-Shoes-108876/product-reviews/B0C9V71Z15/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
 pg1 <- productinfo(link1)
-link2 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+link2 <- "https://www.amazon.com.au/DC-Shoes-108876/product-reviews/B0C9V71Z15/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
 pg2 <- productinfo(link2)
-link3 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+link3 <- "https://www.amazon.com.au/DC-Shoes-108876/product-reviews/B0C9V71Z15/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
 pg3 <- productinfo(link3)
-link4 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+link4 <- "https://www.amazon.com.au/DC-Shoes-108876/product-reviews/B0C9V71Z15/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
 pg4 <- productinfo(link4)
-link5 <- "https://www.amazon.com.au/Skechers-Work-Relaxed-Fit-Cessnock/product-reviews/B07MKB9JKY/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+link5 <- "https://www.amazon.com.au/DC-Shoes-108876/product-reviews/B0C9V71Z15/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
 pg5 <- productinfo(link5)
 
 product_review45 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review45)
+#View(product_review45)
 ```
 
 
-Product 46
+#Product 46
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -2221,24 +2217,24 @@ productinfo <- function(link) {
   return(amazonshoes16)
 }
 
-link1 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+link1 <- "https://www.amazon.com.au/PUMA-Mens-Tazon-Cross-Training-Shoe/product-reviews/B0C5MZPMZD/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
 pg1 <- productinfo(link1)
-link2 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+link2 <- "https://www.amazon.com.au/PUMA-Mens-Tazon-Cross-Training-Shoe/product-reviews/B0C5MZPMZD/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
 pg2 <- productinfo(link2)
-link3 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+link3 <- "https://www.amazon.com.au/PUMA-Mens-Tazon-Cross-Training-Shoe/product-reviews/B0C5MZPMZD/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
 pg3 <- productinfo(link3)
-link4 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+link4 <- "https://www.amazon.com.au/PUMA-Mens-Tazon-Cross-Training-Shoe/product-reviews/B0C5MZPMZD/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
 pg4 <- productinfo(link4)
-link5 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+link5 <- "https://www.amazon.com.au/PUMA-Mens-Tazon-Cross-Training-Shoe/product-reviews/B0C5MZPMZD/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
 pg5 <- productinfo(link5)
 
 product_review46 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review46)
+#View(product_review46)
 ```
 
 
-Product 47
+#Product 47
 ```{r}
 category <- "Shoes"
 scrapeNodes <- function(session, HTML) {
@@ -2269,18 +2265,168 @@ productinfo <- function(link) {
   return(amazonshoes17)
 }
 
-link1 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+link1 <- "https://www.amazon.com.au/etnies-Mens-Jameson-Skate-Medium/product-reviews/B0CN1LLZMR/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
 pg1 <- productinfo(link1)
-link2 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+link2 <- "https://www.amazon.com.au/etnies-Mens-Jameson-Skate-Medium/product-reviews/B0CN1LLZMR/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
 pg2 <- productinfo(link2)
-link3 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+link3 <- "https://www.amazon.com.au/etnies-Mens-Jameson-Skate-Medium/product-reviews/B0CN1LLZMR/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
 pg3 <- productinfo(link3)
-link4 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+link4 <- "https://www.amazon.com.au/etnies-Mens-Jameson-Skate-Medium/product-reviews/B0CN1LLZMR/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
 pg4 <- productinfo(link4)
-link5 <- "https://www.amazon.com.au/Skechers/product-reviews/B0CSF3CP3Z/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+link5 <- "https://www.amazon.com.au/etnies-Mens-Jameson-Skate-Medium/product-reviews/B0CN1LLZMR/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
 pg5 <- productinfo(link5)
 
 product_review47 <- rbind(pg1, pg2, pg3, pg4, pg5)
 
-View(product_review47)
+#View(product_review47)
+```
+
+
+#Product 48
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes18 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes18)
+}
+
+link1 <- "https://www.amazon.com.au/Heelys/product-reviews/B0CWS2J393/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/Heelys/product-reviews/B0CWS2J393/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/Heelys/product-reviews/B0CWS2J393/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/Heelys/product-reviews/B0CWS2J393/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/Heelys/product-reviews/B0CWS2J393/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review48 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+#View(product_review48)
+```
+
+
+#Product 49
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes19 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes19)
+}
+
+link1 <- "https://www.amazon.com.au/ECCO-Mens-St1-Hybrid-Plain/product-reviews/B07FQ4SQLK/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/ECCO-Mens-St1-Hybrid-Plain/product-reviews/B07FQ4SQLK/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/ECCO-Mens-St1-Hybrid-Plain/product-reviews/B07FQ4SQLK/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/ECCO-Mens-St1-Hybrid-Plain/product-reviews/B07FQ4SQLK/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/ECCO-Mens-St1-Hybrid-Plain/product-reviews/B07FQ4SQLK/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review49 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+#View(product_review49)
+```
+
+
+#Product 50
+```{r}
+category <- "Shoes"
+scrapeNodes <- function(session, HTML) {
+  session %>% scrape() %>% html_nodes(HTML) %>% html_text()
+}
+productinfo <- function(link) {
+  session <- bow(link, user_agent = "For Educational Purpose")
+  Sys.sleep(5) 
+        Product <- scrapeNodes(session, "h1.a-size-large.a-text-ellipsis")
+  
+        Product_Reviewer <- scrapeNodes(session, "span.a-profile-name")[1:10]
+  
+        Product_Review <- scrapeNodes(session, "span.a-size-base.review-text.review-text-content")[1:10]
+        
+         verified_reviews<-scrapeNodes(session, "span.a-size-mini.a-color-state.a-text-bold")[1:10]
+  
+        Review_Date <- scrapeNodes(session, "span.a-size-base.a-color-secondary.review-date")[1:10]
+  
+        Product_Ratings <- scrapeNodes(session, "span.a-icon-alt")[1:10]
+  
+  amazonshoes20 <- data.frame(Category = category,
+                        ProductName = Product,
+                        Reviewer = Product_Reviewer,
+                        Review = Product_Review,
+                        Verified = verified_reviews,
+                        DateOfReview = Review_Date,
+                        Rating = Product_Ratings)
+  return(amazonshoes20)
+}
+
+link1 <- "https://www.amazon.com.au/DSC-Beamer-Cricket-Economical-Durable/product-reviews/B0BZKBYDSG/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+pg1 <- productinfo(link1)
+link2 <- "https://www.amazon.com.au/DSC-Beamer-Cricket-Economical-Durable/product-reviews/B0BZKBYDSG/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2"
+pg2 <- productinfo(link2)
+link3 <- "https://www.amazon.com.au/DSC-Beamer-Cricket-Economical-Durable/product-reviews/B0BZKBYDSG/ref=cm_cr_getr_d_paging_btm_next_3?ie=UTF8&reviewerType=all_reviews&pageNumber=3"
+pg3 <- productinfo(link3)
+link4 <- "https://www.amazon.com.au/DSC-Beamer-Cricket-Economical-Durable/product-reviews/B0BZKBYDSG/ref=cm_cr_getr_d_paging_btm_next_4?ie=UTF8&reviewerType=all_reviews&pageNumber=4"
+pg4 <- productinfo(link4)
+link5 <- "https://www.amazon.com.au/DSC-Beamer-Cricket-Economical-Durable/product-reviews/B0BZKBYDSG/ref=cm_cr_getr_d_paging_btm_next_5?ie=UTF8&reviewerType=all_reviews&pageNumber=5"
+pg5 <- productinfo(link5)
+
+product_review50 <- rbind(pg1, pg2, pg3, pg4, pg5)
+
+#View(product_review50)
+```
+
+```{r}
+product_reviews <- bind_rows(product_review1, product_review2, product_review3, product_review4, product_review5, product_review10, product_review11, product_review12, product_review13, product_review14, product_review15, product_review16, product_review17, product_review18, product_review19, product_review20, product_review21, product_review22, product_review23, product_review24, product_review25, product_review26, product_review27, product_review28, product_review29, product_review30, product_review31, product_review32, product_review33, product_review34, product_review35, product_review36, product_review37, product_review38, product_review39, product_review40, product_review41, product_review42, product_review43, product_review44, product_review45, product_review46, product_review47, product_review48, product_review49, product_review50)
+
+write.csv(product_reviews, file = "50AmazonProducts_Reviews.csv")
 ```
