@@ -1,0 +1,78 @@
+---
+title: "CS_102_PracticalExam"
+author: "Charles Daniel Songaling"
+date: "2024-03-07"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+library("warpbreaks")
+```{r}
+data("warpbreaks")
+```
+
+A.
+#1. Find out, in a single command, which columns of warpbreaks are either numeric or integer. What are the data types of each column?
+```{r}
+str(warpbreaks)
+
+#The break column is numeric.
+#The wool and tension column is factor.
+```
+
+#2. How many observations does it have?
+```{r}
+str(warpbreaks)
+#It has 54 observations. 
+```
+
+#3. Is numeric a natural data type for the columns which are stored as such? Convert to integer when necessary.
+```{r error=TRUE}
+warpbreaks$wool <- as.integer(warpbreaks)
+```
+
+#4. Error messages in R sometimes report the underlying type of an object rather than the user-level class. Derive from the following code and error message what the underlying type. Explain what is the error all about. Do not just copy the error message that was displayed.
+```{r}
+
+```
+
+B.
+#1. Read the complete file using readLines.
+```{r}
+
+readLines("exampleFile.txt")
+
+```
+
+#2. Separate the vector of lines into a vector containing comments and a vector containing the data. Hint: use grepl.
+```{r}
+
+lines <- readLines("exampleFile.txt")
+comments <- lines[grepl("^//",lines)]
+data <- lines[grepl("^//",lines)]
+
+comments
+data
+```
+
+#3. Extract the date from the first comment line and display on the screen “It was created data.”
+```{r}
+
+txt <- readLines(paste("exampleFile.txt", sep = ""), n = 1) 
+txt
+```
+
+#4. Read the data into a matrix as follows.
+a. Split the character vectors in the vector containing data lines by semicolon (;) 
+using strsplit.
+```{r}
+
+```
+b. Find the maximum number of fields retrieved by split. Append rows that are 
+shorter with NA's.
+c. Use unlist and matrix to transform the data to row-column format.
+d. From comment lines 2-4, extract the names of the fields. Set these as 
+colnames for the matrix you just created.
