@@ -1,0 +1,48 @@
+---
+title: "Lab 3"
+author: "Charles Daniel Songaling"
+date: "2024-03-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+```
+
+```{r}
+movie_reviews <- data.frame()
+ 
+ link <- "https://www.imdb.com/title/tt1630029/reviews?ref_=tt_urv"
+session <- bow(link, user_agent = "Educational")
+
+scrapeNodes <- function(selector) {
+   scrape(session) %>%
+     html_nodes(selector) %>%
+     html_text(trim = TRUE)
+ }
+ 
+ movie_title <- scrapeNodes("a.subnav_heading")
+ reviewer <- scrapeNodes("span.display-name-link")[1:10]
+ Date <- scrapeNodes("span.review-date")[1:10]
+ Rating <- scrapeNodes("span.rating-other-user-rating")[1:10]
+ Review <- scrapeNodes("div.text.show-more__control")[1:10]
+ RevTitle <- scrapeNodes("a.title")[1:10]
+ 
+ movie_reviews <- rbind(movie_reviews, data.frame(
+   Movie_Title = rep(movie_title, 10),
+   Reviewer_Name = reviewer,
+   Review_Date = Date,
+   Review_Rating = Rating,
+   Review_content = Review,
+   Review_Title = RevTitle))
+ 
+movie_reviews
+write.csv(movie_reviews, file = "movie_reviews.csv")
+```

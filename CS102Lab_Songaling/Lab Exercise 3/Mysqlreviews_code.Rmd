@@ -1,0 +1,140 @@
+---
+title: "Mysqlreviews_code"
+author: "Charles Daniel Songaling"
+date: "2024-03-15"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr,dbplyr)
+library(RMariaDB)
+library(RMySQL)
+```
+
+```{r}
+connection <- dbConnect(RMySQL::MySQL(), 
+                        dsn="MySQL-connection",
+                        Server = "localhost",
+                        dbname = "movie_reviews", 
+                        user = "root", 
+                        password = "") 
+```
+
+```{r}
+movierev <- read.csv("movie_reviews.csv")
+```
+
+```{r}
+#getting all data using SELECT * FROM dbaseName
+review_data <- dbGetQuery(connection, "SELECT * FROM movie_reviews.movie_revs")
+# checking for the columns and its content
+glimpse(review_data)
+```
+
+```{r}
+#getting all data using SELECT * FROM dbaseName
+SqlQuery <- "SELECT movie_title,rating FROM movie_reviews.movie_revs"
+
+as_tibble(dbGetQuery(connection,SqlQuery))
+```
+
+```{r}
+#1 
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','Rob-O-Cop','20 April 2023','3/10','I struggled to get through this film. It was just a rehash of the first film, and tired magical natives tropes, offering nothing in the way of insight and intelligence. The usual bang bang explosions were there but does anyone really care to watch 3 hours of video game like action when you're not even a player?The much talked about visuals were fine, but so 'ten years ago', when we cared about stuff like CGI. Now we're seen it all and this is fine but nothing special.This film missed the boat by a decade and in that decade they couldn't hire themselves a writer to fit in some semblance of substance and meaning for a 2023 audience. A wasted effort and a waste of our time and someone's money.','Hard to care enough to finish watching it')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#2 
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','fraser-simons','29 December 2022','6/10','Technically gorgeous, but the story is similarly emotionally manipulative without really thinking through the colonial themes, making it recursive of the first - even with the exact same antagonists, which get more screen time despite that being used little to no effect, except to perpetuate similar circumstances for the next movie. How exasperating. LET THE BAD GUY GO FFS. The kid saying bro every five seconds was excruciating. Why would they have the same vernacular as 20th century people? Why would the kid have that affectation when no one else uses it? It's so stupid.It is bloated, indulgent, and repeats the same criticisms with a bullheaded script that feels like it knows that and spits in the face of it. The only reason to see the movie, as with the first, is the CGI. If you've seen any movie about outsiders living with indigenous people threatened by the same culture, you've seen this movie.Also, if I have.','Bro, The only thing it nails is how pretty it is')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#3 
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','dommercaldi','29 January 2023','4/10','Pros:
+1. For the most part, the movie has exceptional visuals and produces some stunning scenes, especially in the water. This film definitely serves as a love letter from James Cameron (Director) to the ocean.2. There are some touching scenes when it came to Jake (Sam Worthington) and Neytiri (Zoe Saldana) caring for their family, and teaching them to care for each other.3. There are some entertaining action sequences that are engaging.4. The strong emphasis on family, and the importance to said family, is refreshing and a positive message to take away.Cons:
+1. Plot-wise, this film was pretty much a rehashing of the first one as the evil humans come to conquer Pandora, but are beaten back by the virtuous Na'vi's.2. The run-time is far too long, and the script definitely isn't expansive enough to effectively fill out the 3 hour runtime. At least an hour could have been shaved off, especially with the boring teen-melodrama between the Jake's kids and the water tribes' kids.3. There are moments where the animation looks a little janky.4. Jack Champion (Spider) cannot act, and his character is both annoying and pointless. Spider just exists as a weak conduit to humanise Quaritch.5. Quaritch (Stephen Lang) and his marines are supposedly deadly and well-trained, but they pretty much lose every conflict, no matter how big or small, that they're engaged in. Moreover, the whole point of them coming back to Pandora as Na'vi was to infiltrate the world and get closer to Jake to kill him. However, they retain their marine get-up and weapons (which makes them stick out like a sore thumb), and their tactics used to flush Jake out, consists of them laying siege to Na'vi villages, torturing and killing the villagers, and then setting said villages aflame.6. Jake is depicted as virtuous and brave as he decides to leave the forest to protect his people from Quaritch, but he has no problem in seeking sanctuary with the water people and putting them in danger. He just saves one people at the expense of others.7. It seems almost every drama and conflict is initiated by Neteyam (Jamie Flatters) and Lo'ak (Britain Dalton) disobeying Jake. It quickly becomes a tired and overused plot device to move the story along.8. The pro-environmental message is far too preachy and in your face. It also lacks subtlety in presentation like the anti-colonial messaging in the first movie.9. There's no nuance at all. The humans, who have actually travelled to Pandora in order to seek survival for humans, are portrayed as unequivocally evil, polluting and selfish, whereas the Na'vi are noble, courageous and in touch with nature. A deservedly more balanced viewing of the motivations of the humans could have added a lot more depth and intrigue into the story.10. This film ret-cons one of the most interesting plot points of the first movie, wherein the humans needed to link their live bodies to a machine which would transfer their consciousness to a Na'vi avatar. In this film however, it's revealed that humans have invented a microchip which allows them to upload their thoughts, emotions and personality traits to it. This not only now makes their second invasion of Pandora redundant as they're effectively immortal now, but it removes a big source of tension that the first movie had when Jake's human body was being hunted down by Quaritch. Moreover, as established in this film, they had invented this technology during the timeline of the first movie, so why didn't they use it?','Messy and Inconsistent Plot Points, Over bloated With Teen Melodrama, But Pretty Visuals')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#4 
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','Tweetienator','16 December 2022','6/10','The strong suit of the first Avatar movie was for sure not the story (the retelling of Pocahontas in a sci-fi context etc. - my rate for that one is a straight 8), so I did not expect a sophisticated plot or something substantial, and like expected, the story is nothing worth to mention or remarkable. Fore sure, The Way of Water is no bad experience, the effects are fine, the production superb, so I dare to say, if you liked the first one you will like this one most likely too. All in all I was entertained, but the trip had some lengthy parts too, some cutting (like in many productions these days) would have done some magick to the experience of The Way of Water. Also the sensation of the new style like movies like the first Matrix, Sin City and Avatar provided is gone - you know what you get. So I gotta confess, here and there I was slightly bored, and sometimes it was like watching the cinematic to a (well made) computer game. In my humble opinion, the media mostly does overpraise this work by James Cameron like they did with the Dune remake by Denis Villeneuve. Eye-candy? Yes. Cinematic masterpieces? No.','Visuals Top, Movie Not')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#5 
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','JumpingCineFile','15 December 2022','7/10','This sequel has a design and look that matches the first film but it no longer has the same impact. While the ocean setting brings new creatures for us to marvel at - it isn't as breathtakingly new as it was 13 years ago.There are a lot of action set pieces and all of them are great to watch, although they feel either repetitive or borrowed from previous Cameron films like Titanic.For me, bringing back both the Grace character and the evil colonel felt too much. One of them, Grace (Sigorney Weaver), would have been sufficient, the Colonel could easily have been a brother like in Die Hard 3, although this would require additional story changes regarding the adolescent « Spider » character. But that would have been better than the whole « importance of Family » theme running through everything. Just too much of that for me, as well as let's make sure only incidental characters die.The 3D and higher frame rate aspects added nothing extra for me, and at times made it feel like video and not like a real film - although interestingly this video feel was not always there like in the Hobbit films, but would come and go.The story of this film becomes a battle between Jake and the cloned Colonel, with the rest of the global aspect of Pandora verses Humans dropping by the wayside. It would have been more interesting if the new antagonist, not a clone of the Colonel, disobeys his orders from the General and goes AWOL to hunt down Jake - like Captain Ahab and the white whale.','Visually stunning and action packed but story is light')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#6
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','Paragon240','16 December 2022','6/10','It's a James Cameron film, so it's impressive. The special effects, camerawork, world-building, and action were all off the charts. But Avatar: The Way of Water struggles like its predecessor in the story and character development departments. In fact, the story of The Way of Water is almost identical to the first Avatar. Instead of humans learning to be Na'vi and then fighting Stephen slang, a family of forest Na'vi learns to be ocean Na'vi and then fight Stephen Lang. All the strengths and weaknesses of the first movie are back in this one, with the bonus of being compared to the original. It really is a visual feast and special effects masterpiece, but just like the first Avatar, that's all it is.','Avatar: The Way of Water follows in its predecessor's footsteps with stunning effects and a mediocre story.')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#7
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','garabedian123','18 December 2022','4/10','So, the dumbest thing they could have possibly have dones...they did within the first few minutes of the movie. Not 1, not 2, but 3 completely unbelievable events. They clone the Colonel in a avatar form...and he has a human son also on planet, and Sigorney Weaver has a daughter, even though she is dead...Did i miss anything. Is there anyone out there that actually liked this beginning?I think the Colonel should have been the main character. He could have fallen in love with Pandora just as Jake did and we could have seen that hey, everyone who goes to this planet gets changed. But no, they just wanted a generic bad guy and nothing more. An old rival. But the problem with this is there are already plenty of people that think like this, we even saw them on screen, but they are only shown once and never again. The movie actually started off following the Colonel after being resurrected, and we think thats where the movie is heading but it was just for one shot then it moves on.So they don't have a very good reason for leaving the forest. The forest has been under attack for years but now lets leave because im sure they will stop if we leave.. More like an ostrich with its head in the sand. If we dont see it its not happening.You know what one line kinda ruined the movie for me. When they killed the whale and said this stops human aging and is the only reason why we are on this planet...What?!! WHat about unobtanium. Or did you really forget that is the only reason why you are on the planet..or to terraform and kill all the natives was another reason thrown out there. But its like Cameron completely forgot about unobtanium, and so did all the humans.And by the end of the movie we are exactly where we started. Humans are still on pandora, nothing was solved, nothing was resolved. Why make a movie that has no point?','I wanted to love..but there is no magic in this one')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#8
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','alfredvankuik','15 December 2022','5/10','James Cameron brings the biggest disappointment of the year. Avatar 2 is nothing but empty beauty.We start with a hurried introduction to the plot through some narration. Jake is a happy dude and he's made some kids somehow. None of this is explained well because apparently it doesn't matter. People are here again and they're evil again, for reasons. Jake flees to a beautiful water world and we never hear of the forest world after that. It's probably being destroyed, but who cares about the genocide of their former tribe? Jake doesn't. His son is touching a whale he shouldn't touch so that's way more interesting. For some reason humanity sends Miles' clone after Jake, spending massive amounts of money to hunt him down even though the objective was only to stop Jake from creating an uprising, which has already succeeded. Jake was laying low in hiding but for some reason they hunt him down still.For a three hour movie, Avatar 2 feels rushed quite often. Subplots are introduced or hinted at and then get thrown away without resolve and big plot points feel rushed, but we do get to spend half an hour watching a completely unnecessary whalehunt. We're supposed to get attached to Jake's new kids but the only one that shows some depth of character is the one that gets bullied and punished for it over and over, even by his own father. It's very hard to feel attached to any of the characters because they're all shallow husks. Dialogue is absolutely horrendous and rarely gets any deeper than ""Come on bro, we gotta do this bro, it's for family bro"". The overuse of ""bro"" is maddening and brings the already terrible dialogue down to sub-zero levels. None of the interactions feel natural. Spider as a character is the epitome of this. He is not only horribly cast but added absolutely nothing to the plot. All he did was politely ask Miles to stop killing a few times. The character in this movie that shows the most depth and development is a whale. I'm not kidding.The ending is extremely lackluster. The new water tribe is just discarded entirely. There's no big fight where the water tribe helps out their new friends in their cool watery ways. They join Jake on the ride there and then they just disappear and we get a rehash of the beginning fight with the same five people we've been watching for the past two hours doing the same things they've always done. Once again, the only character saving this fight is that same whale. In the end the new waterworld setting and all the people in it are nothing but a beautiful background instead of something that actually plays into the plot and characters.Is it all bad? No. Avatar 2 looks amazing. The action scenes are stunning and the water world with all it's majestic creatures is beautiful. But that's all there is. It's empty beauty with no substance at all. And to me, that might just be the biggest disappointment of the year, movie-wise.','Empty beauty')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#9
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','murkee','17 February 2023','4/10','Visually spectacular, but my goodness, does it drag.It's a 1hr 50 minute film, crammed into a runtime of a little over three hours. My goodness me.The whole film can be summed up with 'humans bad, do the bad things'. Yes, from the Point of view of Pandora, correct. That's it really.We only get hints at how Earth is.... And the resources for interplanetary missions... yet Pandora is the sole option? At least 'unobtainium' is not the macguffin, but it has suddenly jumped to the alien whale brain-juice (at 80 million a vial, that'll pay for the interplanetary missions, multi-ship missions, in no time flat). It's just stupid. Double down on the 'humans need pandora for survival of the species' - don't have that as the throwaway line and then make it about whale brain juice.Gah! Such an annoying film.','Overlong and self indulgent.')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#10
+query <- "INSERT INTO movie_revs (movie_title, reviewer_name, date, rating, review_content, review_title) VALUES ( 'Avatar: The Way of Water','the-n','6 January 2023','3/10','There is a reason Aristotle placed ""spectacle"" last behind plot, character, etc., in the elements of drama. This movie is nothing but empty spectacle and cliched thought. A literal trope fest. BUT THE DIALOG! Jeez? A few humans stay on the planet after the previous incursion, and a few years later, the entire native culture speaks, thinks, and behaves like US high-schoolers. Isn't part of settler colonism inflicting foreign culture on the natives? Who would have thought that foreign culture would be American high-school attitudes. It was a struggle to make it to the end. I had to keep fast forwarding through painful dialog scenes.','Story and especially the dialogue is awful.')"
+# Execute the query
+query_result <- dbSendQuery(connection, query)
+# clear the result after executing the query
+dbClearResult(query_result)
+```
+
+```{r}
+#disconnect from dbase
+dbDisconnect(connection)
+```
