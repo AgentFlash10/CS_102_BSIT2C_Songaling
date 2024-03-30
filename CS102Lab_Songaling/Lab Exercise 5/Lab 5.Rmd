@@ -1,0 +1,68 @@
+---
+title: "Lab 5"
+author: "Charles Daniel Songaling"
+date: "2024-03-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(stringr)
+library(readr)
+```
+
+#Amazon_Reviews
+```{r}
+ama_revs <- read.csv("50AmazonProducts_Reviews.csv")
+
+ama_reviews <- ama_revs
+
+# Removing emojis
+ama_reviews$Review <- gsub("\\p{So}", "", ama_reviews$Review, perl = TRUE)
+
+# Removing non-English language
+ama_reviews$Review <- gsub("[^a-zA-Z ]", "",ama_reviews$Review)
+
+amazon_reviews <- ama_reviews %>%
+  mutate(across(where(is.character), tolower)) %>%
+  select(-Review)
+
+# Adding the review date
+review_date <- ama_revs$DateOfReview
+
+ama_reviews$DateOfReview <- review_date
+
+review_date <- as.Date(str_extract(ama_reviews$date, "\\d+\\s[A-Za-z]+\\s\\d+"), format = "%d %b %Y")
+
+# Filtering the ratings
+review_rating<- as.integer(str_extract(ama_reviews$Rating, "\\d+\\.\\d+"))
+
+
+filtered_amazonreviews <- amazon_reviews %>%
+  mutate(DateOfReview = DateOfReview, Rating = review_rating)
+
+# Writing the cleaned data to a CSV file
+write_csv(filtered_amazonreviews, "AmazonReviews_filtered/cleaned.csv")
+```
+
+#Arxiv
+```{r}
+arxiv_paper <- read_csv("Arxiv papers on Sports.csv")
+
+date_extract <- str_extract(arxiv_paper$meta, "\\d+\\s[A-Za-z]+\\s\\d+")
+
+datex <- as.Date(date_extract, format = "%d %b %Y")
+head(datex)
+
+filtered_papers <- arxiv_paper %>%
+  mutate(date = datex) %>%
+  mutate(subject = gsub("\\s\\(.*\\)", "", subject),
+         across(where(is.character), tolower)) %>%
+         select(-meta, -...1)
+
+write.csv(cleaned_droga, "Sports_arxivpapers_filtered/cleaned.csv")
+```
