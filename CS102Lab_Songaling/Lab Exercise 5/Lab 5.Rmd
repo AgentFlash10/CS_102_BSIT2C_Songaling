@@ -45,8 +45,8 @@ review_rating<- as.integer(str_extract(ama_reviews$Rating, "\\d+\\.\\d+"))
 filtered_amazonreviews <- amazon_reviews %>%
   mutate(DateOfReview = DateOfReview, Rating = review_rating)
 
-# Writing the cleaned data to a CSV file
-write_csv(filtered_amazonreviews, "AmazonReviews_filtered/cleaned.csv")
+#Writing cleaned data to CSV file
+write.csv(filtered_amazonreviews,file = "AmazonReviews_filtered&cleaned.csv")
 ```
 
 #Arxiv
@@ -58,11 +58,12 @@ date_extract <- str_extract(arxiv_paper$meta, "\\d+\\s[A-Za-z]+\\s\\d+")
 datex <- as.Date(date_extract, format = "%d %b %Y")
 head(datex)
 
-filtered_papers <- arxiv_paper %>%
+filtered_Sportsarxivpapers <- arxiv_paper %>%
   mutate(date = datex) %>%
   mutate(subject = gsub("\\s\\(.*\\)", "", subject),
          across(where(is.character), tolower)) %>%
          select(-meta, -...1)
 
-write.csv(cleaned_droga, "Sports_arxivpapers_filtered/cleaned.csv")
+#Writing cleaned data to CSV file
+write.csv(filtered_Sportsarxivpapers,file = "Sportsarxivpapers_filtered&cleaned.csv")
 ```
